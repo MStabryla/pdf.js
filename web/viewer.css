@@ -305,7 +305,7 @@ html[dir="rtl"] #sidebarContent {
 }
 
 #viewerContainer {
-  overflow: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 32px;
@@ -1790,7 +1790,7 @@ html[dir="rtl"] #documentPropertiesOverlay .row > * {
     display: none;
   }
   #viewerContainer {
-    overflow: visible;
+    overflow: hidden;
   }
 
   #mainContainer,
