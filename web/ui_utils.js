@@ -956,7 +956,8 @@ function getActiveOrFocusedElement() {
  * @returns {number} A value from {SpreadMode}.
  */
 function apiPageLayoutToSpreadMode(layout) {
-  switch (layout) {
+  return SpreadMode.ODD;
+  /*switch (layout) {
     case "SinglePage":
     case "OneColumn":
       return SpreadMode.NONE;
@@ -967,7 +968,7 @@ function apiPageLayoutToSpreadMode(layout) {
     case "TwoPageRight":
       return SpreadMode.EVEN;
   }
-  return SpreadMode.NONE; // Default value.
+  return SpreadMode.NONE;*/ // Default value.
 }
 
 /**
