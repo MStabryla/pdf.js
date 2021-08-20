@@ -87,6 +87,8 @@ function getViewerConfiguration() {
       customScaleOption: document.getElementById("customScaleOption"),
       previous: document.getElementById("previous"),
       next: document.getElementById("next"),
+      previousMiddle: document.getElementById("prevPageButton"),
+      nextMiddle: document.getElementById("nextPageButton"),
       zoomIn: document.getElementById("zoomIn"),
       zoomOut: document.getElementById("zoomOut"),
       viewFind: document.getElementById("viewFind"),

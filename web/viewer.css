@@ -305,7 +305,7 @@ html[dir="rtl"] #sidebarContent {
 }
 
 #viewerContainer {
-  overflow-x: hidden;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 32px;
@@ -338,6 +338,7 @@ html[dir="rtl"]
 }
 
 .toolbar {
+  /*display:none;*/
   position: relative;
   left: 0;
   right: 0;
@@ -705,6 +706,7 @@ html[dir="ltr"] .doorHangerRight:before {
 }
 
 #toolbarViewerMiddle {
+  display: none!important;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -1946,4 +1948,29 @@ html[dir="rtl"] #documentPropertiesOverlay .row > * {
   #scaleSelectContainer {
     display: none;
   }
+}
+
+.arrow{
+  width:16px;
+  height:16px;
+}
+.right-arrow{
+  transform: rotate(90deg);
+}
+.left-arrow{
+  transform: rotate(-90deg);
+}
+#prevPageButton,#nextPageButton{
+  position: absolute;
+  top:50%;
+  cursor: pointer;
+  border:none;
+  background: none;
+}
+
+#prevPageButton{
+  left:5px;
+}
+#nextPageButton{
+  right:5px;
 }

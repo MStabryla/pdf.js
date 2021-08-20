@@ -63,7 +63,9 @@ class Toolbar {
     this.l10n = l10n;
     this.buttons = [
       { element: options.previous, eventName: "previouspage" },
+      { element: options.previousMiddle, eventName: "previouspage"},
       { element: options.next, eventName: "nextpage" },
+      { element: options.nextMiddle, eventName: "nextpage"},
       { element: options.zoomIn, eventName: "zoomin" },
       { element: options.zoomOut, eventName: "zoomout" },
       { element: options.openFile, eventName: "openfile" },
@@ -224,7 +226,7 @@ class Toolbar {
           option.selected = true;
           predefinedValueFound = true;
         }
-        if (!predefinedValueFound) {
+        if (!predefinedValueFound && items.customScaleOption !== null) {
           items.customScaleOption.textContent = msg;
           items.customScaleOption.selected = true;
         }
