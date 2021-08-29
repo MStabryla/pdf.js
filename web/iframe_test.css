@@ -2,14 +2,14 @@
     height:50vh;
 }
 :root{
-    --inframe-scaler: 5;
+    --inframe-scaler: 1.5;
 
 }
 .iframe-viewer{
     position: relative;
-    margin:auto;
-    height:calc(70px*var(--inframe-scaler) + 52px);
-    width:calc(140px*var(--inframe-scaler) + 32px);
+    margin:0 auto;
+    height:calc(432px*var(--inframe-scaler)); /*432*/
+    width:calc(748px*var(--inframe-scaler)); /*748*/
 }
 .col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{
     height:inherit;

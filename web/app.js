@@ -630,9 +630,10 @@ const PDFViewerApplication = {
     }
     let newScale = this.pdfViewer.currentScale;
     do {
-      newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
+      /*newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
       newScale = Math.ceil(newScale * 10) / 10;
-      newScale = Math.min(MAX_SCALE, newScale);
+      newScale = Math.min(MAX_SCALE, newScale);*/
+      newScale += 0.01;
     } while (--ticks > 0 && newScale < MAX_SCALE);
     this.pdfViewer.currentScaleValue = newScale;
   },
@@ -643,9 +644,10 @@ const PDFViewerApplication = {
     }
     let newScale = this.pdfViewer.currentScale;
     do {
-      newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
+      /*newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
       newScale = Math.floor(newScale * 10) / 10;
-      newScale = Math.max(MIN_SCALE, newScale);
+      newScale = Math.max(MIN_SCALE, newScale);*/
+      newScale -= 0.01;
     } while (--ticks > 0 && newScale > MIN_SCALE);
     this.pdfViewer.currentScaleValue = newScale;
   },
@@ -2692,10 +2694,10 @@ function webViewerWheel(evt) {
     return;
   }
 
-  if (
+  /*if (
     (evt.ctrlKey && supportedMouseWheelZoomModifierKeys.ctrlKey) ||
     (evt.metaKey && supportedMouseWheelZoomModifierKeys.metaKey)
-  ) {
+  ) {*/
     // Only zoom the pages, not the entire viewer.
     evt.preventDefault();
     // NOTE: this check must be placed *after* preventDefault.
@@ -2748,9 +2750,9 @@ function webViewerWheel(evt) {
       pdfViewer.container.scrollLeft += dx * scaleCorrectionFactor;
       pdfViewer.container.scrollTop += dy * scaleCorrectionFactor;
     }
-  } else {
+  /*} else {
     setZoomDisabledTimeout();
-  }
+  }*/
 }
 
 function webViewerTouchStart(evt) {
@@ -2938,6 +2940,23 @@ function webViewerKeyDown(evt) {
     let turnPage = 0,
       turnOnlyIfPageFit = false;
     switch (evt.keyCode) {
+      case 61: // FF/Mac '='
+      case 107: // FF '+' and '='
+      case 187: // Chrome '+'
+      case 171: // FF with German keyboard
+        if (!isViewerInPresentationMode) {
+          PDFViewerApplication.zoomIn();
+        }
+        handled = true;
+        break;
+      case 173: // FF/Mac '-'
+      case 109: // FF '-'
+      case 189: // Chrome '-'
+        if (!isViewerInPresentationMode) {
+          PDFViewerApplication.zoomOut();
+        }
+        handled = true;
+        break;
       case 38: // up arrow
       case 33: // pg up
         // vertical scrolling using arrow/pg keys
